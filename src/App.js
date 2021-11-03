@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
-function App() {
+export default function App() {
+  const [url, setUrl] = useState("");
+  const [urls, setUrls] = useState([]);
+
+  function handleAdd() {}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Music</h1>
+      <iframe
+        width="500"
+        height="300"
+        src="https://www.youtube.com/embed/qiOV0DjdFgQ"
+        title="YouTube video"
+        frameborder="0"
+        // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+
+      <div>
+        <h1>Next</h1>
+        {/* map aq */}
+        <div>
+          <h2>Title</h2>
+          <img src="../public/favicon.ico" alt="video thumbnail" />
+        </div>
+      </div>
+      <div>
+        <h2>Videos</h2>
+        <input
+          placeholder="Youtube Link"
+          value={url}
+          onChange={(e) => setUrl(e)}
+        />
+        <button onClick={handleAdd}>Add</button>
+      </div>
     </div>
   );
 }
-
-export default App;
